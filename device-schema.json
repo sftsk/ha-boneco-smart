@@ -1,0 +1,432 @@
+[
+  {
+    "code": "switch",
+    "iconname": "icon-dp_power2",
+    "id": 1,
+    "mode": "rw",
+    "name": "Main Switch",
+    "property": {
+      "type": "bool"
+    },
+    "type": "obj"
+  },
+  {
+    "code": "mode",
+    "iconname": "icon-dp_mode",
+    "id": 3,
+    "mode": "rw",
+    "name": "Function Mode",
+    "property": {
+      "range": [
+        "Humidifier",
+        "Purifier",
+        "Hybrid"
+      ],
+      "type": "enum"
+    },
+    "type": "obj"
+  },
+  {
+    "code": "filter_life",
+    "iconname": "icon-dp_time2",
+    "id": 5,
+    "mode": "ro",
+    "name": "Filter life",
+    "property": {
+      "unit": "h",
+      "min": 0,
+      "max": 7200,
+      "scale": 0,
+      "step": 1,
+      "type": "value"
+    },
+    "type": "obj"
+  },
+  {
+    "code": "child_lock",
+    "iconname": "icon-dp_power2",
+    "id": 7,
+    "mode": "rw",
+    "name": "Lock",
+    "property": {
+      "type": "bool"
+    },
+    "type": "obj"
+  },
+  {
+    "code": "filter_reset",
+    "iconname": "icon-dp_loop",
+    "id": 11,
+    "mode": "rw",
+    "name": "Reset filter",
+    "property": {
+      "type": "bool"
+    },
+    "type": "obj"
+  },
+  {
+    "code": "temp_indoor",
+    "iconname": "icon-wendu2",
+    "id": 12,
+    "mode": "ro",
+    "name": "Temperature",
+    "property": {
+      "unit": "\u2103",
+      "min": 0,
+      "max": 650,
+      "scale": 1,
+      "step": 1,
+      "type": "value"
+    },
+    "type": "obj"
+  },
+  {
+    "code": "runtime_total",
+    "iconname": "icon-dp_time2",
+    "id": 17,
+    "mode": "ro",
+    "name": "Runtime total",
+    "property": {
+      "unit": "min",
+      "min": 0,
+      "max": 5256000,
+      "scale": 0,
+      "step": 1,
+      "type": "value"
+    },
+    "type": "obj"
+  },
+  {
+    "code": "fault",
+    "iconname": "icon-baojing",
+    "id": 22,
+    "mode": "ro",
+    "name": "Fault",
+    "property": {
+      "label": [
+        "Fan",
+        "Drum",
+        "Sensor",
+        "No_Filter",
+        "No_Water",
+        "No_Front",
+        "Change_Water"
+      ],
+      "type": "bitmap",
+      "maxlen": 7
+    },
+    "scope": "fault",
+    "type": "obj"
+  },
+  {
+    "code": "history_mode",
+    "id": 101,
+    "mode": "rw",
+    "name": "History Mode",
+    "property": {
+      "type": "bool"
+    },
+    "type": "obj"
+  },
+  {
+    "code": "mcu_info",
+    "extContent": "{\"trigger\":\"direct\"}",
+    "iconname": "icon-dp_doc",
+    "id": 102,
+    "mode": "ro",
+    "name": "MCU Information",
+    "property": {
+      "type": "string",
+      "maxlen": 255
+    },
+    "trigger": "direct",
+    "type": "obj"
+  },
+  {
+    "code": "bright_value",
+    "iconname": "icon-liangdu",
+    "id": 103,
+    "mode": "rw",
+    "name": "Bright Value",
+    "property": {
+      "unit": "%",
+      "min": 0,
+      "max": 100,
+      "scale": 0,
+      "step": 1,
+      "type": "value"
+    },
+    "type": "obj"
+  },
+  {
+    "code": "work_mode",
+    "iconname": "icon-dp_mode",
+    "id": 104,
+    "mode": "rw",
+    "name": "Operation mode",
+    "property": {
+      "range": [
+        "Custom",
+        "Auto",
+        "Baby",
+        "Sleep"
+      ],
+      "type": "enum"
+    },
+    "type": "obj"
+  },
+  {
+    "code": "humidity_set",
+    "iconname": "icon-setting",
+    "id": 105,
+    "mode": "rw",
+    "name": "Humidity Set",
+    "property": {
+      "unit": "%rH",
+      "min": 30,
+      "max": 70,
+      "scale": 0,
+      "step": 5,
+      "type": "value"
+    },
+    "type": "obj"
+  },
+  {
+    "code": "fan_speed",
+    "iconname": "icon-FanSpeed",
+    "id": 106,
+    "mode": "rw",
+    "name": "Fan Speed",
+    "property": {
+      "unit": "",
+      "min": 0,
+      "max": 6,
+      "scale": 0,
+      "step": 1,
+      "type": "value"
+    },
+    "type": "obj"
+  },
+  {
+    "code": "light_mode",
+    "iconname": "tcl_function_light",
+    "id": 107,
+    "mode": "rw",
+    "name": "Bright Mode",
+    "property": {
+      "range": [
+        "Auto",
+        "Manual"
+      ],
+      "type": "enum"
+    },
+    "type": "obj"
+  },
+  {
+    "code": "fault_remind",
+    "iconname": "icon-baojing",
+    "id": 108,
+    "mode": "ro",
+    "name": "Reminder",
+    "property": {
+      "label": [
+        "Change_Filter",
+        "Change_ISS",
+        "Do_Clean",
+        "Clean_Mode"
+      ],
+      "type": "bitmap",
+      "maxlen": 4
+    },
+    "scope": "fault",
+    "type": "obj"
+  },
+  {
+    "code": "use_time",
+    "iconname": "icon-dp_time3",
+    "id": 110,
+    "mode": "ro",
+    "name": "Use Time",
+    "property": {
+      "unit": "min",
+      "min": 0,
+      "max": 5256000,
+      "scale": 0,
+      "step": 1,
+      "type": "value"
+    },
+    "type": "obj"
+  },
+  {
+    "code": "humidity_current",
+    "iconname": "icon-shidu",
+    "id": 111,
+    "mode": "ro",
+    "name": "Current Humidity ",
+    "property": {
+      "unit": "%",
+      "min": 20,
+      "max": 90,
+      "scale": 0,
+      "step": 1,
+      "type": "value"
+    },
+    "type": "obj"
+  },
+  {
+    "code": "iss_life",
+    "id": 112,
+    "mode": "ro",
+    "name": "ISS Life",
+    "property": {
+      "unit": "h",
+      "min": 0,
+      "max": 7200,
+      "scale": 0,
+      "step": 1,
+      "type": "value"
+    },
+    "type": "obj"
+  },
+  {
+    "code": "iss_reset",
+    "id": 113,
+    "mode": "rw",
+    "name": "Reset ISS",
+    "property": {
+      "type": "bool"
+    },
+    "type": "obj"
+  },
+  {
+    "code": "iss_use",
+    "id": 114,
+    "mode": "rw",
+    "name": "Use ISS",
+    "property": {
+      "type": "bool"
+    },
+    "type": "obj"
+  },
+  {
+    "code": "water_life",
+    "id": 115,
+    "mode": "ro",
+    "name": "Water Life",
+    "property": {
+      "unit": "h",
+      "min": 0,
+      "max": 300,
+      "scale": 0,
+      "step": 1,
+      "type": "value"
+    },
+    "type": "obj"
+  },
+  {
+    "code": "clean_reset",
+    "id": 116,
+    "mode": "rw",
+    "name": "Reset Clean",
+    "property": {
+      "type": "bool"
+    },
+    "type": "obj"
+  },
+  {
+    "code": "clean_progress",
+    "id": 117,
+    "mode": "ro",
+    "name": "Clean Progress",
+    "property": {
+      "unit": "h.mm",
+      "min": 0,
+      "max": 1200,
+      "scale": 2,
+      "step": 1,
+      "type": "value"
+    },
+    "type": "obj"
+  },
+  {
+    "code": "air_quality_value",
+    "id": 118,
+    "mode": "ro",
+    "name": "Air Quality",
+    "property": {
+      "unit": "",
+      "min": 0,
+      "max": 8,
+      "scale": 0,
+      "step": 1,
+      "type": "value"
+    },
+    "type": "obj"
+  },
+  {
+    "code": "timer",
+    "id": 119,
+    "mode": "rw",
+    "name": "Timer",
+    "property": {
+      "type": "raw",
+      "maxlen": 128
+    },
+    "type": "raw"
+  },
+  {
+    "code": "clean_progress_level",
+    "id": 120,
+    "mode": "ro",
+    "name": "Clean Progress Level",
+    "property": {
+      "unit": "%",
+      "min": 0,
+      "max": 100,
+      "scale": 0,
+      "step": 1,
+      "type": "value"
+    },
+    "type": "obj"
+  },
+  {
+    "code": "ext_sensor_active",
+    "id": 149,
+    "mode": "rw",
+    "name": "Ext Sensor Connection",
+    "property": {
+      "type": "bool"
+    },
+    "type": "obj"
+  },
+  {
+    "code": "ext_temperature",
+    "id": 150,
+    "mode": "wr",
+    "name": "External Temperature",
+    "property": {
+      "unit": "\u00b0C",
+      "min": -200,
+      "max": 600,
+      "scale": 1,
+      "step": 1,
+      "type": "value"
+    },
+    "type": "obj"
+  },
+  {
+    "code": "ext_humidity",
+    "id": 151,
+    "mode": "wr",
+    "name": "External Humidity",
+    "property": {
+      "unit": "%",
+      "min": 0,
+      "max": 99,
+      "scale": 0,
+      "step": 1,
+      "type": "value"
+    },
+    "type": "obj"
+  }
+]

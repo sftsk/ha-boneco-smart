@@ -1,0 +1,23 @@
+{
+  "title": "BONECO H700 SMART",
+  "config": {
+    "step": {
+      "user": {
+        "title": "Connect your H700 SMART over Wi-Fi",
+        "description": "Enter the device's LAN address, Tuya device ID, and local key. The connection goes directly to the Boneco; no cloud account is used.",
+        "data": {
+          "host": "IP address or hostname",
+          "device_id": "Device ID",
+          "local_key": "Local key"
+        }
+      }
+    },
+    "error": {
+      "cannot_connect": "Cannot read an H700 SMART at this address. Check the address, device ID, and local key. If necessary, close the Boneco mobile app and retry.",
+      "invalid_input": "Enter a host, device ID, and a local key containing exactly 16 bytes."
+    },
+    "abort": {
+      "already_configured": "This Boneco is already configured."
+    }
+  }
+}

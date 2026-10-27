@@ -1,0 +1,13 @@
+{
+  "domain": "boneco_smart",
+  "name": "BONECO H700 SMART",
+  "codeowners": ["@sftsk"],
+  "config_flow": true,
+  "documentation": "https://github.com/sftsk/ha-boneco-smart",
+  "integration_type": "device",
+  "iot_class": "local_polling",
+  "issue_tracker": "https://github.com/sftsk/ha-boneco-smart/issues",
+  "loggers": ["tinytuya"],
+  "requirements": ["tinytuya==1.20.0"],
+  "version": "0.1.0"
+}
