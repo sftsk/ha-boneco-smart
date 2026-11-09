@@ -38,10 +38,12 @@ Home Assistant stores the key in its configuration storage. Protect backups and 
 | Humidity | Current relative humidity |
 | Temperature | Current temperature in °C |
 | Air quality level | BONECO's proprietary 0–8 reading; it is not a standard AQI or PM2.5 measurement |
+| Low water | Turns on when the device reports that it is out of water |
+| Needs cleaning | Turns on when the device reports its cleaning reminder |
 
 Status refreshes every 30 seconds and immediately after a command. Automatic presets may manage the fan themselves. A command reads back the reported state; the integration does not assume that a requested value was applied.
 
-This initial version omits timers, maintenance resets, external sensor inputs, and filter/water maintenance entities. It is intended for the H700 SMART with the attached data-point schema; other BONECO models have not been tested.
+The integration is intended for the H700 SMART with the attached data-point schema. Other BONECO models have not been tested.
 
 ## Connection problems
 
@@ -53,7 +55,7 @@ This initial version omits timers, maintenance resets, external sensor inputs, a
 
 ## Verification and development
 
-Tested on Home Assistant **2026.10.4**, Python **3.14.10**, and TinyTuya **1.20.0**. Fourteen automated tests cover setup, service-to-data-point mappings, command validation, socket cleanup, offline recovery, and duplicate configuration. GitHub Actions runs the tests and validates HACS metadata on pushes and pull requests.
+Tested on Home Assistant **2026.10.4**, Python **3.14.10**, and TinyTuya **1.20.0**. Automated tests cover setup, service-to-data-point mappings, maintenance alerts, command validation, socket cleanup, offline recovery, and duplicate configuration. GitHub Actions runs the tests, HACS validation, and hassfest on pushes and pull requests.
 
 The client has successfully read a physical H700 SMART and written back its existing humidity target. The device accepted the command and its power, function, preset, fan level, and target remained unchanged. Other physical control changes have not been exercised.
 

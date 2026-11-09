@@ -2,7 +2,7 @@
 from unittest.mock import patch
 
 import pytest
-from homeassistant.const import ATTR_ENTITY_ID, STATE_UNAVAILABLE
+from homeassistant.const import ATTR_ENTITY_ID, STATE_UNAVAILABLE, STATE_UNKNOWN
 from homeassistant.data_entry_flow import FlowResultType
 from homeassistant.exceptions import HomeAssistantError, ServiceValidationError
 from pytest_homeassistant_custom_component.common import MockConfigEntry
@@ -93,6 +93,35 @@ async def test_setup_controls_and_recovery(hass, device, credentials):
     await entry.runtime_data.async_refresh()
     await hass.async_block_till_done()
     assert hass.states.get(humidifier).state == "on"
+    assert await hass.config_entries.async_unload(entry.entry_id)
+
+
+async def test_maintenance_alerts(hass, device, credentials):
+    entry = await setup_entry(hass, credentials)
+    low_water = 'binary_sensor.boneco_h700_smart_low_water'
+    needs_cleaning = 'binary_sensor.boneco_h700_smart_needs_cleaning'
+    dps = device.response['dps']
+
+    def states():
+        return hass.states.get(low_water).state, hass.states.get(needs_cleaning).state
+
+    assert states() == ('off', 'off')
+
+    for fault, reminder, expected in (
+        (16, 8, ('on', 'off')),   # No water and cleaning mode
+        (64, 4, ('off', 'on')),  # Change water and cleaning reminder
+        (80, 12, ('on', 'on')),  # Both alerts alongside other flags
+        (0, 0, ('off', 'off')),
+    ):
+        dps.update({'22': fault, '108': reminder})
+        await entry.runtime_data.async_refresh()
+        assert states() == expected
+
+    del dps['22']
+    dps['108'] = True
+    await entry.runtime_data.async_refresh()
+    assert states() == (STATE_UNKNOWN, STATE_UNKNOWN)
+    assert hass.states.get('sensor.boneco_h700_smart_temperature').state == '21.7'
     assert await hass.config_entries.async_unload(entry.entry_id)
 
 
